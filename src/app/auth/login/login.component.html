@@ -1,8 +1,11 @@
 <div class="hold-transition login-page">
     <div class="login-box">
+        <div class="login-logo">
+            <a href="#">Paper <strong>Plane</strong></a>
+          </div>
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session as vendor</p>
+                <p class="login-box-msg">Sign in as a vendor</p>
                 <form>
                     <div class="input-group mb-3">
                     <input type="email" class="form-control" placeholder="Email">
@@ -21,16 +24,16 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-sm-8">
                             <div class="icheck-primary">
-                            <input type="checkbox" id="remember">
+                            <input type="checkbox" class="mr-1" id="remember">
                             <label for="remember">
                                 Remember Me
                             </label>
                             </div>
                         </div>
                         
-                        <div class="col-4">
+                        <div class="col-sm-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                             </div>
                             
@@ -41,7 +44,7 @@
                         <a class="text-center">I forgot my password</a>
                     </p>
                     <p class="mb-0" >
-                        <a class="text-center">Register a new membership</a>
+                        <a class="text-center" (click)="goTo()" >Register a new membership</a>
                     </p>
                 </div>
     

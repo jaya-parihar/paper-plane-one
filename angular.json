@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "paper-plane-one"
+  "defaultProject": "paper-plane-one",
+  "cli": {
+    "analytics": "d69a8c08-6cee-4346-a88e-1a642db49421"
+  }
 }
