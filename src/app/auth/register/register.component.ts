@@ -8,7 +8,7 @@ import {
   faUser,
   faPhone
 } from '@fortawesome/free-solid-svg-icons';
-
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -20,7 +20,8 @@ import {
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup | any;
-  constructor(private formBuilder: FormBuilder, private authservice: AuthServiceService) { 
+  constructor(private formBuilder: FormBuilder, private authservice: AuthServiceService, private toastr: ToastrService) { 
+    
     this.registerForm = formBuilder.group({
     fullname: new FormControl(),
     username: new FormControl(),
@@ -43,20 +44,30 @@ export class RegisterComponent implements OnInit {
   
   registerPost(){
     let newVendor = {
-      fullname: this.registerForm.value.fullname,
+      full_name: this.registerForm.value.fullname,
       username: this.registerForm.value.username,
+      country_code: "+91",
       contact: this.registerForm.value.contact,
-    //  gender: this.registerForm.value.gender,
+      gender: 1,
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
-      cpassword: this.registerForm.value.cpassword,
-      iagree: this.registerForm.value.iagree
+      //cpassword: this.registerForm.value.cpassword,
+     // iagree: this.registerForm.value.iagree
     };
     console.log(newVendor.username);
-    this.authservice.registerVendor(newVendor).subscribe(data=>
-    {
-      console.log(data);
-    }
+      let resp:string = "";
+    this.authservice.registerVendor(newVendor).subscribe( (data) => {
+      resp = data.message;
+      console.log(resp);
+      if(resp === "registered")
+      {
+        this.toastr.success('Registered');
+      }
+      else{
+        this.toastr.warning('Internal Server Error');
+      }
+      
+      }
     );
   }
   

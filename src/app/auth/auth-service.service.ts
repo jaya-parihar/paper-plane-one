@@ -14,7 +14,7 @@ export class AuthServiceService {
 
   registerVendor(registerBody:any): Observable<Register>
   {
-    const serverUrl = "http://paperplane.store:3000/register";
+    const serverUrl = "http://paperplane.store:3000/vendor/register";
     console.log(registerBody);
     return this.httpClient.post<Register>(serverUrl, registerBody);
   }

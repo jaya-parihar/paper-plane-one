@@ -1,4 +1,5 @@
 export interface Register {
+    value: any;
     fullname: string;
     username: string;
     contact: number;
@@ -6,5 +7,6 @@ export interface Register {
     email: string;
     password: string;
     cpassword: string;
-    iagree: boolean
+    iagree: boolean;
+    message: string;
 }

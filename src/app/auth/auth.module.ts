@@ -9,11 +9,16 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AuthComponent, 
     LoginComponent, 
-    RegisterComponent
+    RegisterComponent,
+  
   ],
   imports: [
     CommonModule,
@@ -21,7 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FontAwesomeModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
   ],
   exports: [AuthComponent]
 })
