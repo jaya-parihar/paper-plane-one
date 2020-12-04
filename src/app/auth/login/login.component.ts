@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import {
   faLock,
   faEnvelope,
@@ -9,6 +8,7 @@ import {
 import { faFacebookSquare,
 faGooglePlus, } from "@fortawesome/free-brands-svg-icons";
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +16,7 @@ faGooglePlus, } from "@fortawesome/free-brands-svg-icons";
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -25,5 +25,9 @@ export class LoginComponent implements OnInit {
   faEnvelope = faEnvelope;
   faFacebookSquare = faFacebookSquare;
   faGooglePlus = faGooglePlus;
+
+  goTo(): void{
+    this.router.navigate(['vendor/register']);
+  }
 
 }

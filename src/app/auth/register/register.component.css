@@ -1,0 +1,10 @@
+@import "../login/login.component.css";
+
+
+
+.login-box{
+    width:600px;
+}
+.agree-terms{
+    font-weight: 550;
+}
