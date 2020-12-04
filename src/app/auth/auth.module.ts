@@ -9,7 +9,11 @@ import { RegisterComponent } from './register/register.component';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent, RegisterComponent],
+  declarations: [
+    AuthComponent, 
+    LoginComponent, 
+    RegisterComponent
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,
