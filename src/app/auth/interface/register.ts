@@ -3,7 +3,7 @@ export interface Register {
     fullname: string;
     username: string;
     contact: number;
-   // gender: string;
+    // gender: string;
     email: string;
     password: string;
     cpassword: string;

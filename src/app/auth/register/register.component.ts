@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Register } from '../interface/register';
-import { AuthServiceService } from '../auth-service.service';
+import { AuthServiceService } from "../Services/auth-service.service"
+
 import {
   faEnvelope,
   faLock,
@@ -26,11 +27,11 @@ export class RegisterComponent implements OnInit {
     fullname: new FormControl(),
     username: new FormControl(),
     contact: new FormControl(),
+    gender: new FormControl(),
     email: new FormControl(),
     password: new FormControl(),
     cpassword: new FormControl(),
     iagree: new FormControl(),
-    gender: new FormControl()
     })
 
   }
@@ -43,6 +44,7 @@ export class RegisterComponent implements OnInit {
   faPhone = faPhone;
   
   registerPost(){
+
     let newVendor = {
       full_name: this.registerForm.value.fullname,
       username: this.registerForm.value.username,
@@ -52,10 +54,12 @@ export class RegisterComponent implements OnInit {
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
       //cpassword: this.registerForm.value.cpassword,
-     // iagree: this.registerForm.value.iagree
+      //iagree: this.registerForm.value.iagree
     };
-    console.log(newVendor.username);
-      let resp:string = "";
+
+    
+    let resp:string = "";
+
     this.authservice.registerVendor(newVendor).subscribe( (data) => {
       resp = data.message;
       console.log(resp);
@@ -66,7 +70,6 @@ export class RegisterComponent implements OnInit {
       else{
         this.toastr.warning('Internal Server Error');
       }
-      
       }
     );
   }

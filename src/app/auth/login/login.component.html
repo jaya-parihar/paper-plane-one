@@ -2,34 +2,35 @@
     <div class="login-box">
         <div class="login-logo">
             <a href="#">Paper <strong>Plane</strong></a>
-          </div>
+        </div>
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in as a vendor</p>
-                <form>
+                
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()" >
                     <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email">
-                    <div class="input-group-append">
-                    <div class="input-group-text">
-                        <fa-icon [icon]="faEnvelope"></fa-icon>
-                    </div>
-                    </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="email" class="form-control" formControlName="email" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                            <fa-icon [icon]="faLock"></fa-icon>
+                                <fa-icon [icon]="faEnvelope"></fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <fa-icon [icon]="faLock"></fa-icon>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="icheck-primary">
-                            <input type="checkbox" class="mr-1" id="remember">
-                            <label for="remember">
-                                Remember Me
-                            </label>
+                                <input type="checkbox" formControlName="remember" class="mr-1" id="remember">
+                                <label for="remember">
+                                    Remember Me
+                                </label>
                             </div>
                         </div>
                         
@@ -47,7 +48,6 @@
                         <a class="text-center" (click)="goTo()" >Register a new membership</a>
                     </p>
                 </div>
-    
             </div>
         </div>
     </div>

@@ -1,3 +1,5 @@
+import { ToastrService } from 'ngx-toastr';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {
@@ -8,6 +10,7 @@ import {
 import { faFacebookSquare,
 faGooglePlus, } from "@fortawesome/free-brands-svg-icons";
 
+import { AuthServiceService } from '../Services/auth-service.service'
 
 @Component({
   selector: 'app-login',
@@ -16,7 +19,18 @@ faGooglePlus, } from "@fortawesome/free-brands-svg-icons";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  loginForm: FormGroup | any;
+  constructor(private router:Router,
+    private formBuilder: FormBuilder,
+    private authService: AuthServiceService,
+    private toastr: ToastrService
+    ){
+      this.loginForm = formBuilder.group({
+        email: new FormControl(),
+        password: new FormControl(),
+        remember: new FormControl(),
+      })
+    }
 
   ngOnInit(): void {
   }
@@ -30,4 +44,32 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['vendor/register']);
   }
 
+  
+
+  onLogin()
+  {
+    let loginVendor = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password,
+    }
+
+    this.authService.loginVendor(loginVendor).subscribe(
+      (res => {
+        console.log(res);
+        if(res.login == "true")
+        {
+          this.toastr.success("Login success!");
+        }
+        else
+        {
+          this.toastr.error("Inavalid Email or Password");
+        }
+        
+      }),
+      (err) => {
+        console.log(err);
+        this.toastr.error("Something Went Wrong!");
+      }
+    );
+  }
 }
