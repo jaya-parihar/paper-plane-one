@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { ToastrModule } from 'ngx-toastr';
 @NgModule({
@@ -27,7 +27,6 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
   ],
   exports: [AuthComponent]
