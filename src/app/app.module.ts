@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AuthModule } from "./auth/auth.module";
-import { HeaderComponent } from './Layout/header/header.component';
-import { FooterComponent } from './Layout/footer/footer.component';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
@@ -20,8 +18,6 @@ import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent
   ],
   imports: [
     CommonModule,

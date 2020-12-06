@@ -40,12 +40,6 @@ export class LoginComponent implements OnInit {
   faFacebookSquare = faFacebookSquare;
   faGooglePlus = faGooglePlus;
 
-  goTo(): void{
-    this.router.navigate(['vendor/register']);
-  }
-
-  
-
   onLogin()
   {
     let loginVendor = {
@@ -59,6 +53,7 @@ export class LoginComponent implements OnInit {
         if(res.login == "true")
         {
           this.toastr.success("Login success!");
+          this.router.navigateByUrl('/vendor');
         }
         else
         {
@@ -71,5 +66,6 @@ export class LoginComponent implements OnInit {
         this.toastr.error("Something Went Wrong!");
       }
     );
+    
   }
 }

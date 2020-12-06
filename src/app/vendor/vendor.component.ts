@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from '../auth/Services/auth-service.service'
+
+
 @Component({
   selector: 'app-vendor',
   templateUrl: './vendor.component.html',
@@ -7,7 +10,10 @@ import { Router } from '@angular/router';
 })
 export class VendorComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    private authService: AuthServiceService) {
+      this.isLogin = authService.isVendorLogin;
+    }
 
   ngOnInit(): void {
   }
@@ -23,5 +29,7 @@ export class VendorComponent implements OnInit {
       this.router.navigateByUrl("/vendor/auth/register");
     }
   }
+
+  isLogin: boolean = this.authService.isVendorLogin;
 
 }

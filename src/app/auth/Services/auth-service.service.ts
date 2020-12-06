@@ -11,7 +11,8 @@ export class AuthServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
-
+  isVendorLogin: boolean = false;
+  
   registerVendor(registerBody:any): Observable<Register>
   {
     const serverUrl = "http://paperplane.store:3000/vendor/register";
@@ -21,6 +22,7 @@ export class AuthServiceService {
 
   loginVendor(loginBody : any): Observable<Login>
   {
+    this.isVendorLogin = true;
     const serverUrl = "http://paperplane.store:3000/vendor/login";
     console.log("login Service's obj: " , loginBody);
     return this.httpClient.post<Login>(serverUrl, loginBody);
